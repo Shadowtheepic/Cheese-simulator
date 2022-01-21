@@ -1,0 +1,94 @@
+import pygame
+
+pygame.init()
+pygame.display.set_caption("bruh") 
+screen = pygame.display.set_mode((500, 500))
+clock = pygame.time.Clock()
+
+
+
+Cheese = 0
+
+
+class cheeser:
+  def __init__(self, xpos, ypos):
+    self.xpos = xpos
+    self.ypos = ypos
+    self.isMelted = False
+  def melt(self):
+    if self.isMelted is False:
+        print ("melting ches")
+        self.isMelted = True
+        self.xpos -= 20
+        self.ypos -= 20
+    elif self.isMelted is True:
+        print ("ches is already melte")
+  def printInfo(self):
+    if self.isMelted is False:
+      print("the cheese is just fine, sitting at ", self.xpos, ", ", self.ypos)
+    elif self.isMelted is True:
+      print("the cheese has melted a bit, sitting at ", self.xpos, ", ", self.ypos)
+
+doExit = False
+
+
+c1 = cheeser(100,100)
+c2 = cheeser(200,100)
+c3 = cheeser(300,100)
+
+while not doExit:
+    clock.tick(60)
+
+    events = pygame.event.get()
+
+    for event in events:
+      if event.type == pygame.quit:
+        doExit = True
+        
+        
+            
+    c1.printInfo()
+    c2.printInfo()
+    c3.printInfo()
+    c1.melt()
+    c2.melt()
+    c3.melt()
+    c1.printInfo()
+    c2.printInfo()
+    c3.printInfo()
+    
+    print ("enter your score player")
+    
+    a=int(input())
+    
+    if(a < 100):   
+        print ("get gud")
+    elif(a > 9000):
+        print ("you're amazing!")
+    else:
+        print ("keep trying runt")
+        
+        
+        
+    for i in range(10,101,5):
+        print(i)
+               
+    while(Cheese != 12):
+        print ("CHEESE")
+        Cheese += 1
+    
+    
+    
+        
+        
+        
+
+
+    screen.fill((5, 5, 100))
+
+
+    pygame.display.flip() 
+
+
+pygame.quit()
+
